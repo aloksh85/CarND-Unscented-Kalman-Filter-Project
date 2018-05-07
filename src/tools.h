@@ -2,7 +2,7 @@
 #define TOOLS_H_
 #include <vector>
 #include "Eigen/Dense"
-#include <ostream>
+#include <fstream>
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;

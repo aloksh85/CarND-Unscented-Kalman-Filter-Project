@@ -46,7 +46,8 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 bool Tools::writeValueToStream(const double& value, ofstream& streamName) {
 
   if(streamName.is_open()) {
-      streamName<<std::fixed<<setprecision(8)<<value<<",";
+      streamName<<std::fixed<<setprecision(4)<<value<<",";
   }
+  streamName.flush();
   return true;
 }

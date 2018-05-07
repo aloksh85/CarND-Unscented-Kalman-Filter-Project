@@ -25,10 +25,10 @@ UKF::UKF() {
   P_ = MatrixXd(5, 5);
 
   // Process noise standard deviation longitudinal acceleration in m/s^2
-  std_a_ = 0.70;
+  std_a_ = 1.5;
 
   // Process noise standard deviation yaw acceleration in rad/s^2
-  std_yawdd_ = 35.0;
+  std_yawdd_ = 25.0;
 
   //DO NOT MODIFY measurement noise values below these are provided by the sensor manufacturer.
   // Laser measurement noise standard deviation position1 in m
@@ -70,7 +70,10 @@ UKF::UKF() {
 
 }
 
-UKF::~UKF() {}
+UKF::~UKF() {
+lidarNisStream_.close();
+radarNisStream_.close();
+}
 
 /**
  * @param {MeasurementPackage} meas_package The latest measurement data of
@@ -86,9 +89,9 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
 
   if (!is_initialized_) {
     time_us_ = meas_package.timestamp_;
-    double init_vel = 2.0;
+    double init_vel = 5.0;
     double init_psi = 0.0;
-    double init_psi_dot = 2.0;
+    double init_psi_dot = 5.0;
 
     if (meas_package.sensor_type_ == MeasurementPackage::LASER) {
 
