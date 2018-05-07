@@ -2,6 +2,7 @@
 #define TOOLS_H_
 #include <vector>
 #include "Eigen/Dense"
+#include <ostream>
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -23,7 +24,7 @@ public:
   * A helper method to calculate RMSE.
   */
   VectorXd CalculateRMSE(const vector<VectorXd> &estimations, const vector<VectorXd> &ground_truth);
-
+  bool writeValueToStream(const double &,ofstream& );
 };
 
 #endif /* TOOLS_H_ */

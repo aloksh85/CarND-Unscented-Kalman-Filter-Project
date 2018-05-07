@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "tools.h"
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -67,7 +68,14 @@ public:
   ///* Sigma point spreading parameter
   double lambda_;
 
+  ///* Stream object to write lidar NIS values to csv
+  std::ofstream lidarNisStream_;
 
+  ///* Stream object to write radar NIS values to csv
+  std::ofstream radarNisStream_;
+  
+  ///* Tools object
+  Tools tools;
   /**
    * Constructor
    */
